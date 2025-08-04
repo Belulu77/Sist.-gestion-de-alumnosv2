@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Permisos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5; /* Fondo gris claro del cuerpo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .permissions-card {
+            background-color: #fff; /* Fondo blanco para la tarjeta */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Ancho ajustado para que se vea similar a la imagen */
+            padding: 25px;
+            box-sizing: border-box;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee; /* Línea separadora */
+        }
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.4em;
+            color: #007bff; /* Color azul para el título "Gestionar Permisos" */
+        }
+        .card-header .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.6em;
+            color: #888; 
+            cursor: pointer;
+            padding: 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.95em;
+        }
+        .form-group input[type="text"],
+        .form-group select {
+            width: calc(100% - 20px); /* Ancho completo menos padding */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        .form-group select {
+            appearance: none; /* Elimina estilos por defecto del select */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%20viewBox%3D%220%200%20292.4%20292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%20197.8c-2.9-2.9-7.7-2.9-10.6%200L146.2%2036.8%2015.9%20197.8c-2.9%202.9-7.7%202.9-10.6%200-2.9-2.9-2.9-7.7%200-10.6l135.8-135.8c2.9-2.9%207.7-2.9%2010.6%200l135.8%20135.8c2.9%202.9%202.9%207.7%200%2010.6z%22%2F%3E%3C%2Fsvg%3E'); /* Flecha personalizada para el select */
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 12px auto;
+            padding-right: 30px;
+        }
+        .form-group select[size] { 
+            height: auto; /* Permite que la altura se ajuste al número de opciones visibles */
+            min-height: 100px; /* Altura mínima para mostrar al menos 2-3 opciones como en la imagen */
+            overflow-y: auto; /* Esto asegura el deslizador si hay más opciones que el 'size' */
+            border: 1px solid #ccc; /* Borde estándar */
+        }
+        .form-group select[size] option {
+            padding: 8px 10px; /* Padding para que las opciones no se vean tan apretadas */
+            white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+        }
+        .form-group select[size] option:checked { /* Estilo para la opción seleccionada */
+            background-color: #007bff; /* Fondo azul */
+            color: white; /* Letra blanca */
+        }
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff; /* Color azul para el botón */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+        .submit-button:hover {
+            background-color: #0056b3; /* Tono más oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="permissions-card">
+        <div class="card-header">
+            <h2>Gestionar Permisos</h2>
+            <button class="close-btn">&times;</button>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="buscarUsuario">Buscar usuario:</label>
+                <input type="text" id="buscarUsuario" name="buscarUsuario" placeholder="Escribe para buscar...">
+            </div>
+            <div class="form-group">
+                <label for="seleccionarUsuario">Seleccionar usuario:</label>
+                <select id="seleccionarUsuario" name="seleccionarUsuario" size="6"> <option value="sandradeadm">sandradeadm (48708268)</option>
+                    <option value="santiagoan">santiagoan (87654987)</option>
+                    <option value="alejandraM">alejandraM (12341234)</option>
+                    <option value="carlosR">carlosR (98769876)</option>
+                    <option value="sofiaG">sofiaG (11223344)</option>
+                    <option value="javierP">javierP (55667788)</option>
+                    <option value="lauraF">lauraF (99887766)</option>
+                    <option value="miguelA">miguelA (22334455)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="rolActual">Rol actual:</label>
+                <input type="text" id="rolActual" name="rolActual" value="Invitado" readonly>
+            </div>
+            <div class="form-group">
+                <label for="nuevoRol">Nuevo rol:</label>
+                <select id="nuevoRol" name="nuevoRol">
+                    <option value="invitado" selected>Invitado</option>
+                    <option value="administrador">Administrador</option>
+                    <option value="usuario">Usuario</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-button">Guardar cambio de rol</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buscarUsuarioInput = document.getElementById('buscarUsuario');
+            const seleccionarUsuarioSelect = document.getElementById('seleccionarUsuario');
+            const allOptions = Array.from(seleccionarUsuarioSelect.options).map(option => ({
+                value: option.value,
+                text: option.textContent
+            }));
+
+            // Función para filtrar las opciones
+            function filterUsers() {
+                const searchText = buscarUsuarioInput.value.toLowerCase();
+                seleccionarUsuarioSelect.innerHTML = ''; // Limpiamos las opciones actuales
+
+                allOptions.forEach(optionData => {
+                    // Si el texto de la opción incluye el texto de búsqueda
+                    if (optionData.text.toLowerCase().includes(searchText)) {
+                        const option = document.createElement('option');
+                        option.value = optionData.value;
+                        option.textContent = optionData.text;
+                        seleccionarUsuarioSelect.appendChild(option);
+                    }
+                });
+
+                // Si después de filtrar no hay opciones, o si se borró la búsqueda,
+                // aseguramos que la primera opción si existe, esté seleccionada o nada
+                if (seleccionarUsuarioSelect.options.length > 0) {
+                     // Mantener la primera opción seleccionada por defecto si no hay nada en la búsqueda
+                    if (searchText === '') {
+                         seleccionarUsuarioSelect.options[0].selected = true;
+                    } else {
+                        // Si hay búsqueda, seleccionar la primera coincidencia
+                        seleccionarUsuarioSelect.options[0].selected = true;
+                    }
+                }
+            }
+
+            // Agregamos un "event listener" al campo de búsqueda
+            buscarUsuarioInput.addEventListener('input', filterUsers);
+
+            // Llamamos a la función una vez al cargar la página para asegurarnos de que la lista inicial esté bien
+            filterUsers();
+        });
+    </script>
+
+</body>
+</html>

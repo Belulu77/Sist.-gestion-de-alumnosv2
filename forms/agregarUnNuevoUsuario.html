@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Nuevo Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5; /* Fondo gris claro del cuerpo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .add-user-card {
+            background-color: #fff; /* Fondo blanco para la tarjeta */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 380px; /* Ancho ajustado para que se vea similar a la imagen */
+            padding: 25px;
+            box-sizing: border-box;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee; /* Línea separadora */
+        }
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.4em;
+            color: #333; /* Color de texto del título */
+        }
+        .card-header .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.6em;
+            color: #888; /* Color de la 'x' */
+            cursor: pointer;
+            padding: 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.95em;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="password"],
+        .form-group select {
+            width: calc(100% - 20px); /* Ancho completo menos padding */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        .form-group select {
+            appearance: none; /* Elimina estilos por defecto del select */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%20viewBox%3D%220%200%20292.4%20292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%20197.8c-2.9-2.9-7.7-2.9-10.6%200L146.2%2036.8%2015.9%20197.8c-2.9%202.9-7.7%202.9-10.6%200-2.9-2.9-2.9-7.7%200-10.6l135.8-135.8c2.9-2.9%207.7-2.9%2010.6%200l135.8%20135.8c2.9%202.9%202.9%207.7%200%2010.6z%22%2F%3E%3C%2Fsvg%3E'); /* Flecha personalizada para el select */
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 12px auto;
+            padding-right: 30px; /* Espacio para la flecha */
+        }
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff; /* Color azul para el botón */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+        .submit-button:hover {
+            background-color: #0056b3; /* Tono más oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="add-user-card">
+        <div class="card-header">
+            <h2>Agregar Nuevo Usuario</h2>
+            <button class="close-btn">&times;</button>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre">
+            </div>
+            <div class="form-group">
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena">
+            </div>
+            <div class="form-group">
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni">
+            </div>
+            <div class="form-group">
+                <label for="rol">Rol:</label>
+                <select id="rol" name="rol">
+                    <option value="administrador">Administrador</option>
+                    <option value="usuario">usuario</option>
+                    <option value="invitado">invitado</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="grupo">Grupo:</label>
+                <select id="grupo" name="grupo">
+                    <option value="administracion">Administración</option>
+                    <option value="x1">x1</option>
+                    <option value="x2">x2</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-button">Agregar Usuario</button>
+        </form>
+    </div>
+
+</body>
+</html>
